@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+//Decorator
 @Component({
   selector: 'app-root',    //in index.html
   templateUrl: './app.component.html',   //logo and texts are there
@@ -7,5 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   //ts
-  title = 'contact-manager app';
+  //variables
+  appName = 'Contact Manager App';
+  version = 1.1;
+
+  firstName = "Arun";
+  
+  isAuth(){
+    return false;
+  }
+
+
+  onBtnClickHandler(e){
+    console.log(e);
+    //alert("test");
+  }
 }
+
+

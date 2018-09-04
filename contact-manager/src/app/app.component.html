@@ -1,7 +1,93 @@
 <!-- layout -->
 <app-header></app-header>
-<div class="container" style="padding-top:60px;">
+<div class="container text-center" style="padding-top:60px;">
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="si-tab" data-toggle="tab" href="#si" role="tab" aria-controls="si" aria-selected="true">String
+        Interpolation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pb-tab" data-toggle="tab" href="#pb" role="tab" aria-controls="pb" aria-selected="false">Property
+        Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="eb-tab" data-toggle="tab" href="#eb" role="tab" aria-controls="eb" aria-selected="false">
+        Event Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="twb-tab" data-toggle="tab" href="#twb" role="tab" aria-controls="twb" aria-selected="false">
+        Two Way Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="structuraldir-tab" data-toggle="tab" href="#structuraldir" role="tab" aria-controls="structuraldir" aria-selected="false">
+          Structural Directives</a>
+      </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="si" role="tabpanel" aria-labelledby="si-tab">
+      <h2>String Interpolation</h2>
+      I am building my first angular app: <br>
+      {{appName}} Version: {{version}}
+      <br>
+      <input type="text" value="Static Value">
+      <br>
+      <input type="text" value="{{ appName }}">
+
+
+      <p>{{appName}}</p>
+
+    </div>
+    <div class="tab-pane fade" id="pb" role="tabpanel" aria-labelledby="pb-tab">
+      <h2>Property Binding</h2>
+      <input type="text" [value]="appName"> <br>
+
+      <div class="blue">Testing Property 1</div>
+
+      <p [ngClass]="{ blue: true, bold: true }">Styling this thru js expression - look at single curly brace. It is js
+        expression</p>
+
+      <p [ngClass]="{ green: isAuth(), red: !isAuth() }">
+        Checking login
+      </p>
+    </div>
+    <div class="tab-pane fade" id="eb" role="tabpanel" aria-labelledby="eb-tab">
+      <h2> Event Binding</h2>
+
+      <button (click)="onBtnClickHandler($event)">Clicking this</button>
+
+      <button (mouseover)="onBtnClickHandler($event)">Hovering this</button>
+    </div>
+    <div class="tab-pane fade" id="twb" role="tabpanel" aria-labelledby="twb-tab">
+      <h2> Two Way Binding</h2>
+      <input type="text" [(ngModel)]="firstName">
+
+      {{ firstName }}
+
+    </div>
+    <div class="tab-pane fade" id="structuraldir" role="tabpanel" aria-labelledby="structuraldir-tab">
+        <h2> Structural Directives</h2>
+        
+        <div *ngIf="!isAuth()">
+          Not Logged In
+          <button>Login</button>
+        </div>
+
+  
+      </div>
+
+  </div>
+
+
   <!-- custom components -->
+
+
+
+
+
+
+
+
 
 </div>
 <app-footer></app-footer>
