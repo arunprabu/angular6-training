@@ -5,9 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <ul class="navbar-nav mr-auto">
     <li class="nav-item" *ngFor="let item of navItems">
-      <a class="nav-link" href="{{item.link}}">{{ item.name }}</a>
+      <a class="nav-link" routerLink="{{item.link}}">{{ item.name }}</a>
     </li>
-
   </ul>
   `,
   styles: []

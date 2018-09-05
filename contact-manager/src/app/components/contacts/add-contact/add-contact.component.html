@@ -1,0 +1,29 @@
+<div class="col-md-4 offset-md-4">
+  <h2>Add Contact</h2>
+  <form class="text-left" id="addContactForm" (ngSubmit)="newContactFormHandler()" ngNativeValidate>
+    <div class="form-group">
+      <label for="fullNameInput" id="fullNameLabel">Full Name</label>
+      <input type="text" class="form-control" id="fullNameInput" name="firstName" 
+      [(ngModel)]="contactObj.firstName" placeholder="Enter Full Name" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneInput">Phone Number</label>
+      <input type="phone" class="form-control" id="phoneInput" name="phone" 
+      [(ngModel)]="contactObj.phone" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+      <label for="emailInput">Email</label>
+      <input type="email" class="form-control" id="emailInput" name="email" 
+      [(ngModel)]="contactObj.email" placeholder="Email Number">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="companyInput">Company Name</label>
+      <input type="text" class="form-control" id="companyInput" name="company" 
+      [(ngModel)]="contactObj.company" placeholder="Enter Company Name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Contact</button>
+   <!-- <input type="reset" style="display: none;"> -->
+  </form>
+  
+</div>

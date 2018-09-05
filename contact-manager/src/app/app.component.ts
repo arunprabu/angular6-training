@@ -8,21 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   //ts
-  //variables
-  appName = 'Contact Manager App';
-  version = 1.1;
-
-  firstName = "Arun";
   
-  isAuth(){
-    return false;
-  }
-
-
-  onBtnClickHandler(e){
-    console.log(e);
-    //alert("test");
-  }
 }
 
 
