@@ -1,0 +1,18 @@
+<h1> <button class="btn btn-default" routerLink="/contacts/"><< Back</button>Contact</h1>
+<div class="card col-sm-12" *ngIf="contactObj">
+  <div class="card-body">
+    <h5 class="card-title">{{contactObj.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ contactObj.company.name }}</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+      content.</p>
+    <a href="#" class="card-link">{{contactObj.phone}}</a>
+    <a href="#" class="card-link">{{contactObj.email}}</a>
+    <br>
+    <button type="button" class="btn btn-default">Edit</button>
+    <button type="button" class="btn btn-danger" (click)="deleteContactHandler(contactObj.id)">Delete</button>
+  </div>
+
+  <div class="alert alert-success" *ngIf="isDeleted">
+    The contact has been deleted. Pls wait while we redirect you to contacts page.
+  </div>
+</div>

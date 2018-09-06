@@ -25,5 +25,7 @@
     <button type="submit" class="btn btn-primary">Create Contact</button>
    <!-- <input type="reset" style="display: none;"> -->
   </form>
-  
+  <div class="alert alert-success" *ngIf="isSaved">
+    Thanks! New contact has been saved. You can head over to <a routerLink="/contacts">contacts</a> page.
+  </div>
 </div>

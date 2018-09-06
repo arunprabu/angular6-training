@@ -9,6 +9,7 @@ import { ContactsService } from '../../../services/contacts.service';
 export class AddContactComponent implements OnInit {
 
   contactObj: Object = { };  
+  isSaved: boolean = false;
 
   //dependency injection
   constructor(  private contactService: ContactsService ) { 
@@ -23,12 +24,12 @@ export class AddContactComponent implements OnInit {
 
     //send the data to service
     this.contactService.create(this.contactObj)
-                      .subscribe(    //receive the data from service
-                        (savedContactInfo: any) => {
-                          console.log(savedContactInfo);
-                        }
-                    );
-
+                      .subscribe((savedContactInfo: any) => {  //receive the data from service
+                        console.log(savedContactInfo);
+                        this.isSaved = true;
+                      });
     //expect response from service 
   }
+
+  
 }

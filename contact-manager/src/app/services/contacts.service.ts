@@ -30,9 +30,37 @@ export class ContactsService {
   }
 
   //read
+  getContacts(){
+    console.log("inside service");
+    // send the req to the rest api url 
+    return this.http.get("https://jsonplaceholder.typicode.com/users/")
+              .pipe(map(response => {    //receive the resp from rest api 
+                console.log(response);
+                return response.json();   //sending it back to component thru service
+              }
+            ));
+  }
+
+  //get contact details
+  getContactById(id){
+    console.log(id);
+    return this.http.get("https://jsonplaceholder.typicode.com/users/"+id)
+              .pipe(map(response => {    //receive the resp from rest api 
+                console.log(response);
+                return response.json();   //sending it back to component thru service
+              }
+            ));
+  }
 
   //update
 
   //delete 
-
+  delete(id){
+    return this.http.delete("https://jsonplaceholder.typicode.com/users/"+id)
+              .pipe(map(response => {    //receive the resp from rest api 
+                console.log(response);
+                return response.json();   //sending it back to component thru service
+                }
+              ));
+  }
 }
