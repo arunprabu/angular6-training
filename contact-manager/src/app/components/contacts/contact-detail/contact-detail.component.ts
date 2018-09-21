@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 import { ContactsService } from '../../../services/contacts.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
@@ -13,6 +15,9 @@ export class ContactDetailComponent implements OnInit {
   contactObj: {};
   contactId: number;
   isDeleted: boolean;
+  isUpdated: boolean;
+
+  editableContactObj : {};
 
   constructor( private contactService: ContactsService, 
                private activateRoute: ActivatedRoute,
@@ -30,6 +35,44 @@ export class ContactDetailComponent implements OnInit {
                           console.log(contact)
                           this.contactObj = contact;
                         })
+  }
+
+
+  openEditModal(){
+    console.log("test");
+
+    //show the modal using js 
+    $("#editContactModal").modal('show');
+
+    this.editableContactObj = {
+      id: this.contactObj['id'],
+      name: this.contactObj['name'],
+      email: this.contactObj['email'],
+      phone: this.contactObj['phone']
+    }
+  }
+
+  //update
+  updateContact(){
+    console.log(this.editableContactObj);
+
+    //send the data to service
+    this.contactService.update(this.editableContactObj)
+                        .subscribe( (resp) =>{
+                          console.log(resp);
+
+                          // DOM will be mutated automatically
+                          this.isUpdated = true;
+
+                          setTimeout(() => {
+                            $("#editContactModal").modal('hide');
+                            //this.router.navigate(['contacts']);
+                            
+                          }, 3000);
+                         
+                        });
+    //get the resp
+    
   }
 
   deleteContactHandler(id){

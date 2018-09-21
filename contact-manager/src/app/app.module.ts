@@ -13,6 +13,7 @@ import { ConceptsComponent } from './components/concepts/concepts.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AddContactComponent } from './components/contacts/add-contact/add-contact.component';
 import { ContactDetailComponent } from './components/contacts/contact-detail/contact-detail.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 
 //configure the routes
@@ -34,7 +35,8 @@ const APP_ROUTES: Routes = [
     ConceptsComponent,
     ContactsComponent,
     AddContactComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

@@ -8,11 +8,56 @@
     <a href="#" class="card-link">{{contactObj.phone}}</a>
     <a href="#" class="card-link">{{contactObj.email}}</a>
     <br>
-    <button type="button" class="btn btn-default">Edit</button>
+    <button type="button" class="btn btn-default" (click)="openEditModal()">Edit</button>
     <button type="button" class="btn btn-danger" (click)="deleteContactHandler(contactObj.id)">Delete</button>
   </div>
 
   <div class="alert alert-success" *ngIf="isDeleted">
     The contact has been deleted. Pls wait while we redirect you to contacts page.
   </div>
+
+  <div class="modal fade" id="editContactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Contact</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="editableContactObj">
+            <form class="text-left" id="addContactForm">
+              <div class="form-group">
+                <label for="fullNameInput" id="fullNameLabel">Full Name</label>
+                <input type="text" class="form-control" id="fullNameInput" name="newName" 
+                [(ngModel)]="editableContactObj.name" placeholder="Enter Full Name" required>
+              </div>
+              <div class="form-group">
+                <label for="phoneInput">Phone Number</label>
+                <input type="phone" class="form-control" id="phoneInput" name="newPhone" 
+                [(ngModel)]="editableContactObj.phone" placeholder="Phone Number" required>
+              </div>
+              <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input type="email" class="form-control" id="emailInput" name="newEmail" 
+                [(ngModel)]="editableContactObj.email" placeholder="Email Number">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="companyInput">Company Name</label>
+                <!-- <input type="text" class="form-control" id="companyInput" name="newCompany" 
+                [(ngModel)]="editableContactObj.company.name" placeholder="Enter Company Name" required> -->
+              </div>
+              <div class="alert alert-success" *ngIf="isUpdated">Thanks! your record has been updated</div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateContact()">Update Contact</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -53,6 +53,17 @@ export class ContactsService {
   }
 
   //update
+  update(contactObj){
+    console.log(contactObj);
+    //send the data to rest api 
+    return this.http.put("https://jsonplaceholder.typicode.com/users/"+contactObj.id, contactObj)
+              .pipe(map(response => {  //process the resp
+                console.log(response);
+                return response.json(); //return the resp 
+              }))
+    
+    //return the resp 
+  }
 
   //delete 
   delete(id){

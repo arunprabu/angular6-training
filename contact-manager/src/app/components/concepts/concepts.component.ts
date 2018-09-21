@@ -12,8 +12,13 @@ export class ConceptsComponent implements OnInit {
   version = 1.1;
 
   firstName = "Arun";
+  birthday;
+  placeholderText: string;
 
-  constructor() { }
+  constructor() { 
+    this.birthday = new Date(); 
+    this.placeholderText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odit adipisci in eligendi voluptatem est qui commodi provident, animi asperiores tenetur. Soluta ducimus qui laborum, quaerat commodi provident accusantium! Iste?';
+  }
 
   ngOnInit() {
   }
