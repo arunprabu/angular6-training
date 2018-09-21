@@ -44,12 +44,16 @@ export class ContactDetailComponent implements OnInit {
     //show the modal using js 
     $("#editContactModal").modal('show');
 
-    this.editableContactObj = {
-      id: this.contactObj['id'],
-      name: this.contactObj['name'],
-      email: this.contactObj['email'],
-      phone: this.contactObj['phone']
-    }
+    // this.editableContactObj = {
+    //   id: this.contactObj['id'],
+    //   name: this.contactObj['name'],
+    //   email: this.contactObj['email'],
+    //   phone: this.contactObj['phone']
+    // }
+
+    //Instead of doing the above way to create duplicate obj, you can create a copy of the object like the following
+    //Refer: https://stackoverflow.com/questions/39506619/angular2-how-to-copy-object-into-another-object
+    this.editableContactObj = JSON.parse(JSON.stringify(this.contactObj)); //duplicate obj 
   }
 
   //update
